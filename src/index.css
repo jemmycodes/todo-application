@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 0.5rem 1rem;
 }
 
 @layer base {
@@ -22,7 +22,7 @@ body {
   }
 
   section {
-    @apply px-4 max-w-3xl w-full mx-auto;
+    @apply max-w-3xl w-full mx-auto;
   }
 
   li {

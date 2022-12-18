@@ -13,7 +13,7 @@ function All() {
   ));
 
   return (
-    <section className="px-8">
+    <section>
       <ul className="flex flex-col gap-4">{todo}</ul>
     </section>
   );

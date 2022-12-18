@@ -3,7 +3,7 @@ import Buttons from "../Ui/Buttons";
 
 function TodoNav() {
   return (
-    <nav className="flex flex-col w-full px-4">
+    <nav className="flex flex-col w-full">
       <h1>TodoList</h1>
       <ul className="flex flex-col  md:flex-row gap-4">
         <li>

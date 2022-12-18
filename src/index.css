@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+@layer base {
+  h1 {
+    @apply text-center font-semibold tracking-wide text-shadyBlack text-3xl mb-4;
+  }
+
+  section {
+    @apply px-4 max-w-3xl w-full mx-auto;
+  }
+
+  li {
+    @apply w-full;
+  }
+
+  button.red-btns {
+    @apply p-2 rounded-md text-white w-full bg-red-800;
+  }
+
+  div button {
+    @apply p-2 rounded-md text-white w-full bg-RedBtns;
+  }
+}

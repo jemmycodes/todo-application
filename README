@@ -1,0 +1,5 @@
+My second todo application. 
+Features 
+1. I used Context API to manage the state..
+2. Used no prop drilling.
+3. Implemeted the CRUD Features except "D"(delete).

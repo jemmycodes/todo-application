@@ -5,6 +5,7 @@ import { v4 as uuid } from "uuid";
 const APP_ACTIONS = {
   add: "ADD",
   delete: "DELETE",
+  deleteAll: "DELETE_ALL",
 };
 
 const defaultState = {
@@ -23,6 +24,12 @@ const todoReducer = (state, action) => {
     const deleteItems = state.todo.filter((todo) => todo.id !== action.payload);
     return {
       todo: deleteItems,
+    };
+  }
+
+  if (action.type === APP_ACTIONS.deleteAll) {
+    return {
+      todo: [],
     };
   }
   return defaultState;
@@ -47,10 +54,16 @@ function TodoProvider(props) {
     });
   };
 
+  const deleteAllTasks = () => {
+    dispatchTodo({ type: APP_ACTIONS.deleteAll });
+    console.log(todoState.todo);
+  };
+
   const todoContext = {
     todos: todoState.todo,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
+    deleteAll: deleteAllTasks,
   };
 
   return (

@@ -30,10 +30,14 @@ body {
   }
 
   button.red-btns {
-    @apply p-2 rounded-md text-white w-full bg-red-800;
+    @apply p-2 rounded-md text-white w-full bg-RedBtns;
   }
 
   div button {
     @apply p-2 rounded-md text-white w-full bg-RedBtns;
+  }
+
+  input[type="text"] {
+    @apply border rounded-md rounded-l-none py-2 w-full focus:border-BlueBtns focus:outline-none focus:border-2 px-4;
   }
 }

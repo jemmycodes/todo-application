@@ -48,9 +48,9 @@ const todoReducer = (state, action) => {
     };
   }
 
-  if (action.type === APP_ACTIONS.toggle) {
+  if (action.type === APP_ACTIONS.deleteDone) {
     return {
-      todo: state.todo,
+      todo: state.todo.filter((aTodo) => aTodo.isChecked !== true),
       done: [],
     };
   }

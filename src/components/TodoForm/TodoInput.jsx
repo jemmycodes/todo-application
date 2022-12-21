@@ -1,18 +1,17 @@
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import { RiBook2Fill } from "react-icons/ri";
 import TodoContext from "../../store/todo-context";
 import Buttons from "../Ui/Buttons";
 
 function TodoInput() {
   const todoCtx = useContext(TodoContext);
-
   const todoInput = useRef();
 
   const submitFormHandler = (e) => {
-    if (todoInput.current.value.length === 0) {
+    e.preventDefault();
+    if (todoInput.current.value.trim().length === 0) {
       return;
     }
-    e.preventDefault();
     todoCtx.addTodo(todoInput.current.value);
     todoInput.current.value = " ";
   };

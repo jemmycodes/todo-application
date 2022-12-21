@@ -1,4 +1,3 @@
-import lists from "../todo-data";
 import { AiFillDelete } from "react-icons/ai";
 import { useContext } from "react";
 import TodoContext from "../store/todo-context";
@@ -12,9 +11,15 @@ function All() {
       key={todo.id}
       id={todo.id}
     >
-      <p>{todo.todo}</p>
+      <p
+        className={`${
+          todo.isChecked === true ? "text-RedBtns line-through" : ""
+        }`}
+      >
+        {todo.todo}
+      </p>
       <div className="flex items-center gap-2">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={() => todoCtx.toggleTodo(todo.id)} />
         <AiFillDelete
           className="text-RedBtns text-xl cursor-pointer"
           onClick={() => todoCtx.removeTodo(todo.id)}
@@ -23,9 +28,16 @@ function All() {
     </li>
   ));
 
+  const todoLength = todoCtx.todos.length === 0;
+
   return (
     <section>
-      <ul className="flex flex-col gap-4">{todo}</ul>
+      {!todoLength && <ul className="flex flex-col gap-4">{todo}</ul>}
+      {todoLength && (
+        <p className="text-center font-bold">
+          You have no todos yet. Try adding a Todo!😉
+        </p>
+      )}
     </section>
   );
 }

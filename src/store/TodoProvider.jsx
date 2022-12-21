@@ -13,6 +13,7 @@ const APP_ACTIONS = {
 const defaultState = {
   todo: [],
   done: [],
+  notDone: [],
 };
 
 const todoReducer = (state, action) => {
@@ -21,6 +22,7 @@ const todoReducer = (state, action) => {
     return {
       todo: state.todo,
       done: state.todo.filter((aTodo) => aTodo.isChecked === true),
+      notDone: state.todo,
     };
   }
 
@@ -29,6 +31,7 @@ const todoReducer = (state, action) => {
     return {
       todo: deleteItems,
       done: state.todo.filter((aTodo) => aTodo.isChecked === true),
+      notDone: deleteItems,
     };
   }
 
@@ -36,6 +39,7 @@ const todoReducer = (state, action) => {
     return {
       todo: [],
       done: [],
+      notDone: [],
     };
   }
 
@@ -45,6 +49,7 @@ const todoReducer = (state, action) => {
     return {
       todo: state.todo,
       done: state.todo.filter((aTodo) => aTodo.isChecked === true),
+      notDone: state.todo.filter((aTodo) => aTodo.isChecked !== true),
     };
   }
 
@@ -52,6 +57,7 @@ const todoReducer = (state, action) => {
     return {
       todo: state.todo.filter((aTodo) => aTodo.isChecked !== true),
       done: [],
+      notDone: state.todo.filter((aTodo) => aTodo.isChecked !== true),
     };
   }
 
@@ -90,12 +96,13 @@ function TodoProvider(props) {
 
   const todoContext = {
     todos: todoState.todo,
+    done: todoState.done,
+    notDone: todoState.notDone,
     addTodo: addTodoHandler,
     removeTodo: removeTodoHandler,
     deleteAll: deleteAllTasks,
     deleteDone: deleteDoneHandler,
     toggleTodo: toggleTodo,
-    done: todoState.done,
   };
 
   return (
